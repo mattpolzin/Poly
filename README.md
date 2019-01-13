@@ -16,7 +16,7 @@ To create an Xcode project for Poly, run
 Usage will be explained by way of an example. Suppose you have some code with three different Types: `Dog`, `Cat`, and `Rat`. You also have a protocol, `Animal`, that they all belong to.
 
 If you need to store animals of all three Types in one place (maybe an array), that looks like:
-```
+```swift
 let dog = Dog()
 let cat = Cat()
 let rat = Rat()
@@ -29,7 +29,7 @@ let animals: [Poly3<Dog, Cat, Rat>] = [
 ```
 
 You can get the `Dog`, `Cat`, or `Rat` value back out again, but you won't get any guarantees of which Type is being stored in a given `Poly`:
-```
+```swift
 let animal = Poly3<Dog, Cat, Rat>(Dog())
 
 let maybeDog: Dog? = animal.a
@@ -37,13 +37,13 @@ let maybeCat: Cat? = animal.b
 let maybeRat: Rat? = animal.c
 ```
 Or use the subscript operator to make accessing one of the possible values of a `Poly` a bit more intuitive:
-```
+```swift
 let maybeDog2 = animal[Dog.self]
 let maybeCat2 = animal[Cat.self]
 let maybeRat2 = animal[Rat.self]
 ```
 Or switch over the possible values:
-```
+```swift
 switch animal {
   case .a(let dog):
     print(dog)
@@ -55,12 +55,12 @@ switch animal {
 ```
 
 You might consider making a typealias to make your life easier:
-```
+```swift
 typealias AnyAnimal = Poly3<Dog, Cat, Rat>
 ```
 
 You also might find it worthwhile to go the extra mile and add `Animal` conformance to `Poly<Dog, Cat, Rat>`:
-```
+```swift
 protocol Animal {
   var speak: String { get }
 }
@@ -77,6 +77,6 @@ extension Poly3: Animal where A == Dog, B == Cat, C == Rat {
 }
 ```
 So now you can take the array of animals from the first example above and:
-```
+```swift
 let animalSounds = animals.map { $0.speak }
 ```
