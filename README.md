@@ -48,9 +48,9 @@ switch animal {
   case .a(let dog):
     print(dog)
   case .b(let cat):
-    print(dog)
+    print(cat)
   case .c(let rat):
-    print(dog)
+    print(rat)
 }
 ```
 
@@ -69,8 +69,8 @@ extension Poly3: Animal where A == Dog, B == Cat, C == Rat {
   var speak: String {
     switch self {
       case .a(let animal as Animal),
-        .b(let animal as Animal),
-        .c(let animal as Animal):
+           .b(let animal as Animal),
+           .c(let animal as Animal):
           return animal.speak
     }
   }
