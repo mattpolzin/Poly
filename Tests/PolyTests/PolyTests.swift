@@ -418,6 +418,22 @@ class PolyTests: XCTestCase {
 	}
 }
 
+// MARK: - switching with protocol
+
+extension PolyTests {
+	func test_switchWithProtocol() {
+		let testThings: [Poly3<TestType1, TestType2, TestType3>] = [
+			.init(TestType1(a: 1)),
+			.init(TestType2(b: 2)),
+			.init(TestType3(c: 3))
+		]
+
+		let testString = testThings.map { $0.test }.joined(separator: " ")
+
+		XCTAssertEqual(testString, "Hello There World")
+	}
+}
+
 // MARK: - subscript lookup
 extension PolyTests {
 	func test_Poly1_lookup() {
@@ -595,6 +611,33 @@ extension PolyTests {
 
 	struct TestType9: Codable, Equatable {
 		let i: Int
+	}
+}
+
+protocol TestProtocol {
+	var test: String { get }
+}
+
+extension PolyTests.TestType1: TestProtocol {
+	var test: String { return "Hello" }
+}
+
+extension PolyTests.TestType2: TestProtocol {
+	var test: String { return "There" }
+}
+
+extension PolyTests.TestType3: TestProtocol {
+	var test: String { return "World" }
+}
+
+extension Poly3: TestProtocol where A == PolyTests.TestType1, B == PolyTests.TestType2, C == PolyTests.TestType3 {
+	var test: String {
+		switch self {
+		case .a(let x as TestProtocol),
+			 .b(let x as TestProtocol),
+			 .c(let x as TestProtocol):
+			return x.test
+		}
 	}
 }
 
