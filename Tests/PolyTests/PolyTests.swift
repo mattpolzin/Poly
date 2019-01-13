@@ -12,7 +12,10 @@ import Foundation
 // MARK: - init
 class PolyTests: XCTestCase {
 	func test_init_Poly0() {
-		let _ = Poly0()
+		let a = Poly0()
+		let b = Poly0()
+
+		XCTAssertEqual(a, b)
 	}
 
 	func test_init_Poly1() {
