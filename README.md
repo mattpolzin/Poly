@@ -28,6 +28,13 @@ let animals: [Poly3<Dog, Cat, Rat>] = [
 ]
 ```
 
+To access all animals of a certain type, you can use subscripting like:
+```swift
+let dogs = animals[Dog.self]
+let cats = animals[Cat.self]
+let rats = animals[Rat.self]
+```
+
 You can get the `Dog`, `Cat`, or `Rat` value back out again, but you won't get any guarantees of which Type is being stored in a given `Poly`:
 ```swift
 let animal = Poly3<Dog, Cat, Rat>(Dog())
