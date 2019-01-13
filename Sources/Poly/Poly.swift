@@ -39,6 +39,8 @@ public struct Poly0: _Poly0 {
 	public init() {}
 }
 
+extension Poly0: Equatable {}
+
 // MARK: - 1 type
 public protocol _Poly1: _Poly0 {
 	associatedtype A
