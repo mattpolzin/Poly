@@ -30,6 +30,7 @@ extension PolyTests {
         ("test_Poly8_lookup", test_Poly8_lookup),
         ("test_Poly9_decode_throws_typeNotFound", test_Poly9_decode_throws_typeNotFound),
         ("test_Poly9_lookup", test_Poly9_lookup),
+        ("test_switchWithProtocol", test_switchWithProtocol),
     ]
 }
 
