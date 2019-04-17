@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Poly"
-  spec.version      = "1.1.0"
+  spec.version      = "2.0.0"
   spec.summary      = "A general-purpose library to help represent situations where the type of a value is one of a set of types."
 
   # This description is used to generate tags and improve search results.
@@ -130,7 +130,7 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  spec.swift_version = "4.2"
+  spec.swift_version = "5.0"
   # spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
