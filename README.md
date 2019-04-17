@@ -5,7 +5,14 @@ Poly is a small library to provide an alternative to rolling your own type-erasu
 
 ## Dev Environment
 ### Prerequisites
-1. Swift 4.2+ and Swift Package Manager
+1. Swift 4.2+
+2. Swift Package Manager 5.0 *OR* Cocoapods
+
+### CocoaPods
+To use this framework in your project via Cocoapods instead of Swift Package Manager, add the following dependency to your Podfile.
+```
+	pod 'Poly', :git => 'https://github.com/mattpolzin/Poly.git'
+```
 
 ### Xcode project
 To create an Xcode project for Poly, run
