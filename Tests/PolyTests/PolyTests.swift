@@ -421,10 +421,10 @@ class PolyTests: XCTestCase {
 	}
 }
 
-// MARK: - switching with protocol
+// MARK: - mapping with protocol
 
 extension PolyTests {
-	func test_switchWithProtocol() {
+	func test_mapWithProtocol() {
 		let testThings: [Poly3<TestType1, TestType2, TestType3>] = [
 			.init(TestType1(a: 1)),
 			.init(TestType2(b: 2)),
@@ -576,6 +576,42 @@ extension PolyTests {
 	func test_Poly9_decode_throws_typeNotFound() {
 		XCTAssertThrowsError(try JSONDecoder().decode(Poly9<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9>.self, from: poly_entity10))
 	}
+}
+
+// MARK: - decoding ambiguity
+
+extension PolyTests {
+    func test_DoubleThenInt() {
+        // Poly2<Double, Int> is ambiguous when decoding a number that could be either
+        // a Double or an Int. Poly will pick the first possible match.
+
+        struct Test: Decodable, Equatable {
+            let x: Poly2<Double, Int>
+        }
+
+        let data = #"{ "x": 2 }"#.data(using: .utf8)!
+
+        XCTAssertEqual(try? JSONDecoder().decode(Test.self, from: data), Test(x: .a(2)))
+    }
+
+    func test_IntThenDouble() {
+        // Poly2<Int, Double> avoids some ambiguity since a number that could be an Int can also
+        // be a Double but not the other way around. If you expect a particular number that is
+        // possible to represent as an Int to become a Double, you are still not able to use this
+        // type.
+
+        struct Test: Decodable, Equatable {
+            let x: Poly2<Int, Double>
+        }
+
+        let data = #"{ "x": 2 }"#.data(using: .utf8)!
+
+        XCTAssertEqual(try? JSONDecoder().decode(Test.self, from: data), Test(x: .a(2)))
+
+        let data2 = #"{ "x": 2.1 }"#.data(using: .utf8)!
+
+        XCTAssertEqual(try? JSONDecoder().decode(Test.self, from: data2), Test(x: .b(2.1)))
+    }
 }
 
 // MARK: - Test types
