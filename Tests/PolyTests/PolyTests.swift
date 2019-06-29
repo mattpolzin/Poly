@@ -614,6 +614,17 @@ extension PolyTests {
     }
 }
 
+// MARK: - debug output
+extension PolyTests {
+    func test_PolyTypeNotFoundOutput() {
+        do {
+            try JSONDecoder().decode(Poly9<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9>.self, from: poly_entity10)
+        } catch let err {
+//            print(err)
+        }
+    }
+}
+
 // MARK: - Test types
 extension PolyTests {
 	struct TestType1: Codable, Equatable {

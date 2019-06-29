@@ -7,17 +7,50 @@
 
 // MARK: - Generic Decoding
 
-private func decode<Thing: Decodable>(_ type: Thing.Type, from container: SingleValueDecodingContainer) throws -> Result<Thing, DecodingError> {
-	let ret: Result<Thing, DecodingError>
+public struct PolyDecodeNoTypesMatchedError: Swift.Error, CustomDebugStringConvertible {
+
+    public struct IndividualFailure: Swift.Error {
+        let type: Any.Type
+        let error: DecodingError
+    }
+
+    public let codingPath: [CodingKey]
+    public let individualTypeFailures: [IndividualFailure]
+
+    public var debugDescription: String {
+        let codingPathString = codingPath
+            .map { $0.intValue.map(String.init) ?? $0.stringValue }
+        .joined(separator: "/")
+
+        let failureStrings = individualTypeFailures.map {
+            let type = $0.type
+            let descriptiveError = $0.error as? CustomDebugStringConvertible
+            let error = descriptiveError?.debugDescription ?? String(describing: $0.error)
+            return "\(String(describing: type)) could not be decoded because:\n\(error)"
+        }.joined(separator: "\n\n")
+
+        return
+"""
+Poly failed to decode any of its types at: "\(codingPathString)"
+
+\(failureStrings)
+"""
+    }
+}
+
+internal typealias PolyTypeNotFound = PolyDecodeNoTypesMatchedError.IndividualFailure
+
+private func decode<Thing: Decodable>(_ type: Thing.Type, from container: SingleValueDecodingContainer) throws -> Result<Thing, PolyTypeNotFound> {
+	let ret: Result<Thing, PolyTypeNotFound>
 	do {
 		ret = try .success(container.decode(Thing.self))
 	} catch (let err as DecodingError) {
-		ret = .failure(err)
+		ret = .failure(PolyTypeNotFound(type: type, error: err))
 	} catch (let err) {
-		ret = .failure(DecodingError.typeMismatch(Thing.self,
-												  .init(codingPath: container.codingPath,
-														debugDescription: String(describing: err),
-														underlyingError: err)))
+        ret = .failure(PolyTypeNotFound(type: type, error: DecodingError.typeMismatch(Thing.self,
+                                                                                      .init(codingPath: container.codingPath,
+                                                                                            debugDescription: String(describing: err),
+                                                                                            underlyingError: err))))
 	}
 	return ret
 }
@@ -61,15 +94,18 @@ extension Poly2: Decodable where A: Decodable, B: Decodable {
 		let container = try decoder.singleValueContainer()
 
 		let attempts = [
-			try decode(A.self, from: container).map { Poly2.a($0) },
-			try decode(B.self, from: container).map { Poly2.b($0) } ]
+            try decode(A.self, from: container).map { Poly2.a($0) },
+			try decode(B.self, from: container).map { Poly2.b($0) }]
 
 		let maybeVal: Poly2<A, B>? = attempts
 			.compactMap { $0.value }
 			.first
 
 		guard let val = maybeVal else {
-			throw EncodingError.invalidValue(Poly2<A, B>.self, .init(codingPath: decoder.codingPath, debugDescription: "Failed to find an include of the expected type. Attempts: \(attempts.map { $0.error }.compactMap { $0 })"))
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
 		}
 
 		self = val
@@ -105,9 +141,12 @@ extension Poly3: Decodable where A: Decodable, B: Decodable, C: Decodable {
 			.compactMap { $0.value }
 			.first
 
-		guard let val = maybeVal else {
-			throw EncodingError.invalidValue(Poly3<A, B, C>.self, .init(codingPath: decoder.codingPath, debugDescription: "Failed to find an include of the expected type. Attempts: \(attempts.map { $0.error }.compactMap { $0 })"))
-		}
+        guard let val = maybeVal else {
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
+        }
 
 		self = val
 	}
@@ -145,9 +184,12 @@ extension Poly4: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			.compactMap { $0.value }
 			.first
 
-		guard let val = maybeVal else {
-			throw EncodingError.invalidValue(Poly4<A, B, C, D>.self, .init(codingPath: decoder.codingPath, debugDescription: "Failed to find an include of the expected type. Attempts: \(attempts.map { $0.error }.compactMap { $0 })"))
-		}
+        guard let val = maybeVal else {
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
+        }
 
 		self = val
 	}
@@ -188,9 +230,12 @@ extension Poly5: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			.compactMap { $0.value }
 			.first
 
-		guard let val = maybeVal else {
-			throw EncodingError.invalidValue(Poly5<A, B, C, D, E>.self, .init(codingPath: decoder.codingPath, debugDescription: "Failed to find an include of the expected type. Attempts: \(attempts.map { $0.error }.compactMap { $0 })"))
-		}
+        guard let val = maybeVal else {
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
+        }
 
 		self = val
 	}
@@ -234,9 +279,12 @@ extension Poly6: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			.compactMap { $0.value }
 			.first
 
-		guard let val = maybeVal else {
-			throw EncodingError.invalidValue(Poly6<A, B, C, D, E, F>.self, .init(codingPath: decoder.codingPath, debugDescription: "Failed to find an include of the expected type. Attempts: \(attempts.map { $0.error }.compactMap { $0 })"))
-		}
+        guard let val = maybeVal else {
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
+        }
 
 		self = val
 	}
@@ -283,9 +331,12 @@ extension Poly7: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			.compactMap { $0.value }
 			.first
 
-		guard let val = maybeVal else {
-			throw EncodingError.invalidValue(Poly7<A, B, C, D, E, F, G>.self, .init(codingPath: decoder.codingPath, debugDescription: "Failed to find an include of the expected type. Attempts: \(attempts.map { $0.error }.compactMap { $0 })"))
-		}
+        guard let val = maybeVal else {
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
+        }
 
 		self = val
 	}
@@ -335,10 +386,12 @@ extension Poly8: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			.compactMap { $0.value }
 			.first
 
-		guard let val = maybeVal else {
-			throw EncodingError.invalidValue(Poly8<A, B, C, D, E, F, G, H>.self, .init(codingPath: decoder.codingPath,
-																					   debugDescription: "Failed to find an include of the expected type. Attempts: \(attempts.map { $0.error }.compactMap { $0 })"))
-		}
+        guard let val = maybeVal else {
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
+        }
 
 		self = val
 	}
@@ -391,10 +444,12 @@ extension Poly9: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			.compactMap { $0.value }
 			.first
 
-		guard let val = maybeVal else {
-			throw EncodingError.invalidValue(Poly9<A, B, C, D, E, F, G, H, I>.self, .init(codingPath: decoder.codingPath,
-																						  debugDescription: "Failed to find an include of the expected type. Attempts: \(attempts.map { $0.error }.compactMap { $0 })"))
-		}
+        guard let val = maybeVal else {
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
+        }
 
 		self = val
 	}
