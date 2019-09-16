@@ -166,6 +166,27 @@ class CollectionPolyTests: XCTestCase {
 								  data: nine_different_type_values)
 	}
 
+    func test_TenDifferentTypes() {
+        let values = decoded(type: [Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10>].self,
+                             data: ten_different_type_values)
+
+        XCTAssertEqual(values[TestType1.self].count, 1)
+        XCTAssertEqual(values[TestType2.self].count, 1)
+        XCTAssertEqual(values[TestType3.self].count, 1)
+        XCTAssertEqual(values[TestType4.self].count, 1)
+        XCTAssertEqual(values[TestType5.self].count, 1)
+        XCTAssertEqual(values[TestType6.self].count, 1)
+        XCTAssertEqual(values[TestType7.self].count, 1)
+        XCTAssertEqual(values[TestType8.self].count, 1)
+        XCTAssertEqual(values[TestType9.self].count, 1)
+        XCTAssertEqual(values[TestType10.self].count, 1)
+    }
+
+    func test_TenDifferentTypes_encode() {
+        test_DecodeEncodeEquality(type: [Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10>].self,
+                                  data: ten_different_type_values)
+    }
+
 }
 
 // MARK: - Test Types
@@ -205,4 +226,8 @@ extension CollectionPolyTests {
 	struct TestType9: Codable, Equatable {
 		let i: Int
 	}
+
+    struct TestType10: Codable, Equatable {
+        let j: Int
+    }
 }

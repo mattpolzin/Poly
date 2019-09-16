@@ -19,61 +19,61 @@ class PolyTests: XCTestCase {
 	}
 
 	func test_init_Poly1() {
-		let entity = TestType5(e: 1)
+		let entity = MatchingType(zzzzz: "hello world")
 		let poly = Poly1(entity)
 		XCTAssertEqual(poly.a, entity)
 	}
 
 	func test_init_Poly2() {
-		let entity = TestType5(e: 1)
-		let poly = Poly2<TestType5, TestType1>(entity)
+		let entity = MatchingType(zzzzz: "hello world")
+		let poly = Poly2<MatchingType, TestType1>(entity)
 		XCTAssertEqual(poly.a, entity)
 		XCTAssertNil(poly.b)
 
-		let poly2 = Poly2<TestType1, TestType5>(entity)
+		let poly2 = Poly2<TestType1, MatchingType>(entity)
 		XCTAssertEqual(poly2.b, entity)
 		XCTAssertNil(poly2.a)
 	}
 
 	func test_init_Poly3() {
-		let entity = TestType5(e: 1)
-		let poly = Poly3<TestType5, TestType1, TestType2>(entity)
+		let entity = MatchingType(zzzzz: "hello world")
+		let poly = Poly3<MatchingType, TestType1, TestType2>(entity)
 		XCTAssertEqual(poly.a, entity)
 		XCTAssertNil(poly.b)
 		XCTAssertNil(poly.c)
 
-		let poly2 = Poly3<TestType1, TestType5, TestType2>(entity)
+		let poly2 = Poly3<TestType1, MatchingType, TestType2>(entity)
 		XCTAssertEqual(poly2.b, entity)
 		XCTAssertNil(poly2.a)
 		XCTAssertNil(poly2.c)
 
-		let poly3 = Poly3<TestType1, TestType2, TestType5>(entity)
+		let poly3 = Poly3<TestType1, TestType2, MatchingType>(entity)
 		XCTAssertEqual(poly3.c, entity)
 		XCTAssertNil(poly3.a)
 		XCTAssertNil(poly3.b)
 	}
 
 	func test_init_Poly4() {
-		let entity = TestType5(e: 1)
-		let poly = Poly4<TestType5, TestType1, TestType2, TestType3>(entity)
+		let entity = MatchingType(zzzzz: "hello world")
+		let poly = Poly4<MatchingType, TestType1, TestType2, TestType3>(entity)
 		XCTAssertEqual(poly.a, entity)
 		XCTAssertNil(poly.b)
 		XCTAssertNil(poly.c)
 		XCTAssertNil(poly.d)
 
-		let poly2 = Poly4<TestType1, TestType5, TestType2, TestType3>(entity)
+		let poly2 = Poly4<TestType1, MatchingType, TestType2, TestType3>(entity)
 		XCTAssertEqual(poly2.b, entity)
 		XCTAssertNil(poly2.a)
 		XCTAssertNil(poly2.c)
 		XCTAssertNil(poly2.d)
 
-		let poly3 = Poly4<TestType1, TestType2, TestType5, TestType3>(entity)
+		let poly3 = Poly4<TestType1, TestType2, MatchingType, TestType3>(entity)
 		XCTAssertEqual(poly3.c, entity)
 		XCTAssertNil(poly3.a)
 		XCTAssertNil(poly3.b)
 		XCTAssertNil(poly3.d)
 
-		let poly4 = Poly4<TestType1, TestType2, TestType3, TestType5>(entity)
+		let poly4 = Poly4<TestType1, TestType2, TestType3, MatchingType>(entity)
 		XCTAssertEqual(poly4.d, entity)
 		XCTAssertNil(poly4.a)
 		XCTAssertNil(poly4.b)
@@ -81,36 +81,36 @@ class PolyTests: XCTestCase {
 	}
 
 	func test_init_Poly5() {
-		let entity = TestType5(e: 1)
-		let poly = Poly5<TestType5, TestType1, TestType2, TestType3, TestType4>(entity)
+		let entity = MatchingType(zzzzz: "hello world")
+		let poly = Poly5<MatchingType, TestType1, TestType2, TestType3, TestType4>(entity)
 		XCTAssertEqual(poly.a, entity)
 		XCTAssertNil(poly.b)
 		XCTAssertNil(poly.c)
 		XCTAssertNil(poly.d)
 		XCTAssertNil(poly.e)
 
-		let poly2 = Poly5<TestType1, TestType5, TestType2, TestType3, TestType4>(entity)
+		let poly2 = Poly5<TestType1, MatchingType, TestType2, TestType3, TestType4>(entity)
 		XCTAssertEqual(poly2.b, entity)
 		XCTAssertNil(poly2.a)
 		XCTAssertNil(poly2.c)
 		XCTAssertNil(poly2.d)
 		XCTAssertNil(poly2.e)
 
-		let poly3 = Poly5<TestType1, TestType2, TestType5, TestType3, TestType4>(entity)
+		let poly3 = Poly5<TestType1, TestType2, MatchingType, TestType3, TestType4>(entity)
 		XCTAssertEqual(poly3.c, entity)
 		XCTAssertNil(poly3.a)
 		XCTAssertNil(poly3.b)
 		XCTAssertNil(poly3.d)
 		XCTAssertNil(poly3.e)
 
-		let poly4 = Poly5<TestType1, TestType2, TestType3, TestType5, TestType4>(entity)
+		let poly4 = Poly5<TestType1, TestType2, TestType3, MatchingType, TestType4>(entity)
 		XCTAssertEqual(poly4.d, entity)
 		XCTAssertNil(poly4.a)
 		XCTAssertNil(poly4.b)
 		XCTAssertNil(poly4.c)
 		XCTAssertNil(poly4.e)
 
-		let poly5 = Poly5<TestType1, TestType2, TestType3, TestType4, TestType5>(entity)
+		let poly5 = Poly5<TestType1, TestType2, TestType3, TestType4, MatchingType>(entity)
 		XCTAssertEqual(poly5.e, entity)
 		XCTAssertNil(poly5.a)
 		XCTAssertNil(poly5.b)
@@ -119,8 +119,8 @@ class PolyTests: XCTestCase {
 	}
 
 	func test_init_Poly6() {
-		let entity = TestType5(e: 1)
-		let poly = Poly6<TestType5, TestType1, TestType2, TestType3, TestType4, TestType6>(entity)
+		let entity = MatchingType(zzzzz: "hello world")
+		let poly = Poly6<MatchingType, TestType1, TestType2, TestType3, TestType4, TestType6>(entity)
 		XCTAssertEqual(poly.a, entity)
 		XCTAssertNil(poly.b)
 		XCTAssertNil(poly.c)
@@ -128,7 +128,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly.e)
 		XCTAssertNil(poly.f)
 
-		let poly2 = Poly6<TestType1, TestType5, TestType2, TestType3, TestType4, TestType6>(entity)
+		let poly2 = Poly6<TestType1, MatchingType, TestType2, TestType3, TestType4, TestType6>(entity)
 		XCTAssertEqual(poly2.b, entity)
 		XCTAssertNil(poly2.a)
 		XCTAssertNil(poly2.c)
@@ -136,7 +136,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly2.e)
 		XCTAssertNil(poly2.f)
 
-		let poly3 = Poly6<TestType1, TestType2, TestType5, TestType3, TestType4, TestType6>(entity)
+		let poly3 = Poly6<TestType1, TestType2, MatchingType, TestType3, TestType4, TestType6>(entity)
 		XCTAssertEqual(poly3.c, entity)
 		XCTAssertNil(poly3.a)
 		XCTAssertNil(poly3.b)
@@ -144,7 +144,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly3.e)
 		XCTAssertNil(poly3.f)
 
-		let poly4 = Poly6<TestType1, TestType2, TestType3, TestType5, TestType4, TestType6>(entity)
+		let poly4 = Poly6<TestType1, TestType2, TestType3, MatchingType, TestType4, TestType6>(entity)
 		XCTAssertEqual(poly4.d, entity)
 		XCTAssertNil(poly4.a)
 		XCTAssertNil(poly4.b)
@@ -152,7 +152,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly4.e)
 		XCTAssertNil(poly4.f)
 
-		let poly5 = Poly6<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6>(entity)
+		let poly5 = Poly6<TestType1, TestType2, TestType3, TestType4, MatchingType, TestType6>(entity)
 		XCTAssertEqual(poly5.e, entity)
 		XCTAssertNil(poly5.a)
 		XCTAssertNil(poly5.b)
@@ -160,7 +160,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly5.d)
 		XCTAssertNil(poly5.f)
 
-		let poly6 = Poly6<TestType1, TestType2, TestType3, TestType4, TestType6, TestType5>(entity)
+		let poly6 = Poly6<TestType1, TestType2, TestType3, TestType4, TestType6, MatchingType>(entity)
 		XCTAssertEqual(poly6.f, entity)
 		XCTAssertNil(poly6.a)
 		XCTAssertNil(poly6.b)
@@ -170,8 +170,8 @@ class PolyTests: XCTestCase {
 	}
 
 	func test_init_Poly7() {
-		let entity = TestType5(e: 1)
-		let poly = Poly7<TestType5, TestType1, TestType2, TestType3, TestType4, TestType6, TestType7>(entity)
+		let entity = MatchingType(zzzzz: "hello world")
+		let poly = Poly7<MatchingType, TestType1, TestType2, TestType3, TestType4, TestType6, TestType7>(entity)
 		XCTAssertEqual(poly.a, entity)
 		XCTAssertNil(poly.b)
 		XCTAssertNil(poly.c)
@@ -180,7 +180,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly.f)
 		XCTAssertNil(poly.g)
 
-		let poly2 = Poly7<TestType1, TestType5, TestType2, TestType3, TestType4, TestType6, TestType7>(entity)
+		let poly2 = Poly7<TestType1, MatchingType, TestType2, TestType3, TestType4, TestType6, TestType7>(entity)
 		XCTAssertEqual(poly2.b, entity)
 		XCTAssertNil(poly2.a)
 		XCTAssertNil(poly2.c)
@@ -189,7 +189,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly2.f)
 		XCTAssertNil(poly2.g)
 
-		let poly3 = Poly7<TestType1, TestType2, TestType5, TestType3, TestType4, TestType6, TestType7>(entity)
+		let poly3 = Poly7<TestType1, TestType2, MatchingType, TestType3, TestType4, TestType6, TestType7>(entity)
 		XCTAssertEqual(poly3.c, entity)
 		XCTAssertNil(poly3.a)
 		XCTAssertNil(poly3.b)
@@ -198,7 +198,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly3.f)
 		XCTAssertNil(poly3.g)
 
-		let poly4 = Poly7<TestType1, TestType2, TestType3, TestType5, TestType4, TestType6, TestType7>(entity)
+		let poly4 = Poly7<TestType1, TestType2, TestType3, MatchingType, TestType4, TestType6, TestType7>(entity)
 		XCTAssertEqual(poly4.d, entity)
 		XCTAssertNil(poly4.a)
 		XCTAssertNil(poly4.b)
@@ -207,7 +207,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly4.f)
 		XCTAssertNil(poly4.g)
 
-		let poly5 = Poly7<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7>(entity)
+		let poly5 = Poly7<TestType1, TestType2, TestType3, TestType4, MatchingType, TestType6, TestType7>(entity)
 		XCTAssertEqual(poly5.e, entity)
 		XCTAssertNil(poly5.a)
 		XCTAssertNil(poly5.b)
@@ -216,7 +216,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly5.f)
 		XCTAssertNil(poly5.g)
 
-		let poly6 = Poly7<TestType1, TestType2, TestType3, TestType4, TestType6, TestType5, TestType7>(entity)
+		let poly6 = Poly7<TestType1, TestType2, TestType3, TestType4, TestType6, MatchingType, TestType7>(entity)
 		XCTAssertEqual(poly6.f, entity)
 		XCTAssertNil(poly6.a)
 		XCTAssertNil(poly6.b)
@@ -225,7 +225,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly6.e)
 		XCTAssertNil(poly6.g)
 
-		let poly7 = Poly7<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType5>(entity)
+		let poly7 = Poly7<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, MatchingType>(entity)
 		XCTAssertEqual(poly7.g, entity)
 		XCTAssertNil(poly7.a)
 		XCTAssertNil(poly7.b)
@@ -236,8 +236,8 @@ class PolyTests: XCTestCase {
 	}
 
 	func test_init_Poly8() {
-		let entity = TestType5(e: 1)
-		let poly = Poly8<TestType5, TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8>(entity)
+		let entity = MatchingType(zzzzz: "hello world")
+		let poly = Poly8<MatchingType, TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8>(entity)
 		XCTAssertEqual(poly.a, entity)
 		XCTAssertNil(poly.b)
 		XCTAssertNil(poly.c)
@@ -247,7 +247,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly.g)
 		XCTAssertNil(poly.h)
 
-		let poly2 = Poly8<TestType1, TestType5, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8>(entity)
+		let poly2 = Poly8<TestType1, MatchingType, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8>(entity)
 		XCTAssertEqual(poly2.b, entity)
 		XCTAssertNil(poly2.a)
 		XCTAssertNil(poly2.c)
@@ -257,7 +257,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly2.g)
 		XCTAssertNil(poly2.h)
 
-		let poly3 = Poly8<TestType1, TestType2, TestType5, TestType3, TestType4, TestType6, TestType7, TestType8>(entity)
+		let poly3 = Poly8<TestType1, TestType2, MatchingType, TestType3, TestType4, TestType6, TestType7, TestType8>(entity)
 		XCTAssertEqual(poly3.c, entity)
 		XCTAssertNil(poly3.a)
 		XCTAssertNil(poly3.b)
@@ -267,7 +267,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly3.g)
 		XCTAssertNil(poly3.h)
 
-		let poly4 = Poly8<TestType1, TestType2, TestType3, TestType5, TestType4, TestType6, TestType7, TestType8>(entity)
+		let poly4 = Poly8<TestType1, TestType2, TestType3, MatchingType, TestType4, TestType6, TestType7, TestType8>(entity)
 		XCTAssertEqual(poly4.d, entity)
 		XCTAssertNil(poly4.a)
 		XCTAssertNil(poly4.b)
@@ -277,7 +277,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly4.g)
 		XCTAssertNil(poly4.h)
 
-		let poly5 = Poly8<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8>(entity)
+		let poly5 = Poly8<TestType1, TestType2, TestType3, TestType4, MatchingType, TestType6, TestType7, TestType8>(entity)
 		XCTAssertEqual(poly5.e, entity)
 		XCTAssertNil(poly5.a)
 		XCTAssertNil(poly5.b)
@@ -287,7 +287,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly5.g)
 		XCTAssertNil(poly5.h)
 
-		let poly6 = Poly8<TestType1, TestType2, TestType3, TestType4, TestType6, TestType5, TestType7, TestType8>(entity)
+		let poly6 = Poly8<TestType1, TestType2, TestType3, TestType4, TestType6, MatchingType, TestType7, TestType8>(entity)
 		XCTAssertEqual(poly6.f, entity)
 		XCTAssertNil(poly6.a)
 		XCTAssertNil(poly6.b)
@@ -297,7 +297,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly6.g)
 		XCTAssertNil(poly6.h)
 
-		let poly7 = Poly8<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType5, TestType8>(entity)
+		let poly7 = Poly8<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, MatchingType, TestType8>(entity)
 		XCTAssertEqual(poly7.g, entity)
 		XCTAssertNil(poly7.a)
 		XCTAssertNil(poly7.b)
@@ -307,7 +307,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly7.f)
 		XCTAssertNil(poly7.h)
 
-		let poly8 = Poly8<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, TestType5>(entity)
+		let poly8 = Poly8<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, MatchingType>(entity)
 		XCTAssertEqual(poly8.h, entity)
 		XCTAssertNil(poly8.a)
 		XCTAssertNil(poly8.b)
@@ -319,8 +319,8 @@ class PolyTests: XCTestCase {
 	}
 
 	func test_init_Poly9() {
-		let entity = TestType5(e: 1)
-		let poly = Poly9<TestType5, TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, TestType9>(entity)
+		let entity = MatchingType(zzzzz: "hello world")
+		let poly = Poly9<MatchingType, TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, TestType9>(entity)
 		XCTAssertEqual(poly.a, entity)
 		XCTAssertNil(poly.b)
 		XCTAssertNil(poly.c)
@@ -331,7 +331,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly.h)
 		XCTAssertNil(poly.i)
 
-		let poly2 = Poly9<TestType1, TestType5, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, TestType9>(entity)
+		let poly2 = Poly9<TestType1, MatchingType, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, TestType9>(entity)
 		XCTAssertEqual(poly2.b, entity)
 		XCTAssertNil(poly2.a)
 		XCTAssertNil(poly2.c)
@@ -342,7 +342,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly2.h)
 		XCTAssertNil(poly2.i)
 
-		let poly3 = Poly9<TestType1, TestType2, TestType5, TestType3, TestType4, TestType6, TestType7, TestType8, TestType9>(entity)
+		let poly3 = Poly9<TestType1, TestType2, MatchingType, TestType3, TestType4, TestType6, TestType7, TestType8, TestType9>(entity)
 		XCTAssertEqual(poly3.c, entity)
 		XCTAssertNil(poly3.a)
 		XCTAssertNil(poly3.b)
@@ -353,7 +353,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly3.h)
 		XCTAssertNil(poly3.i)
 
-		let poly4 = Poly9<TestType1, TestType2, TestType3, TestType5, TestType4, TestType6, TestType7, TestType8, TestType9>(entity)
+		let poly4 = Poly9<TestType1, TestType2, TestType3, MatchingType, TestType4, TestType6, TestType7, TestType8, TestType9>(entity)
 		XCTAssertEqual(poly4.d, entity)
 		XCTAssertNil(poly4.a)
 		XCTAssertNil(poly4.b)
@@ -364,7 +364,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly4.h)
 		XCTAssertNil(poly4.i)
 
-		let poly5 = Poly9<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9>(entity)
+		let poly5 = Poly9<TestType1, TestType2, TestType3, TestType4, MatchingType, TestType6, TestType7, TestType8, TestType9>(entity)
 		XCTAssertEqual(poly5.e, entity)
 		XCTAssertNil(poly5.a)
 		XCTAssertNil(poly5.b)
@@ -375,7 +375,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly5.h)
 		XCTAssertNil(poly5.i)
 
-		let poly6 = Poly9<TestType1, TestType2, TestType3, TestType4, TestType6, TestType5, TestType7, TestType8, TestType9>(entity)
+		let poly6 = Poly9<TestType1, TestType2, TestType3, TestType4, TestType6, MatchingType, TestType7, TestType8, TestType9>(entity)
 		XCTAssertEqual(poly6.f, entity)
 		XCTAssertNil(poly6.a)
 		XCTAssertNil(poly6.b)
@@ -386,7 +386,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly6.h)
 		XCTAssertNil(poly6.i)
 
-		let poly7 = Poly9<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType5, TestType8, TestType9>(entity)
+		let poly7 = Poly9<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, MatchingType, TestType8, TestType9>(entity)
 		XCTAssertEqual(poly7.g, entity)
 		XCTAssertNil(poly7.a)
 		XCTAssertNil(poly7.b)
@@ -397,7 +397,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly7.h)
 		XCTAssertNil(poly7.i)
 
-		let poly8 = Poly9<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, TestType5, TestType9>(entity)
+		let poly8 = Poly9<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, MatchingType, TestType9>(entity)
 		XCTAssertEqual(poly8.h, entity)
 		XCTAssertNil(poly8.a)
 		XCTAssertNil(poly8.b)
@@ -408,7 +408,7 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly8.g)
 		XCTAssertNil(poly8.i)
 
-		let poly9 = Poly9<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, TestType9, TestType5>(entity)
+		let poly9 = Poly9<TestType1, TestType2, TestType3, TestType4, TestType6, TestType7, TestType8, TestType9, MatchingType>(entity)
 		XCTAssertEqual(poly9.i, entity)
 		XCTAssertNil(poly9.a)
 		XCTAssertNil(poly9.b)
@@ -419,6 +419,129 @@ class PolyTests: XCTestCase {
 		XCTAssertNil(poly9.g)
 		XCTAssertNil(poly9.h)
 	}
+
+    func test_init_Poly10() {
+        let entity = MatchingType(zzzzz: "hello world")
+        let poly = Poly10<MatchingType, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10>(entity)
+        XCTAssertEqual(poly.a, entity)
+        XCTAssertNil(poly.b)
+        XCTAssertNil(poly.c)
+        XCTAssertNil(poly.d)
+        XCTAssertNil(poly.e)
+        XCTAssertNil(poly.f)
+        XCTAssertNil(poly.g)
+        XCTAssertNil(poly.h)
+        XCTAssertNil(poly.i)
+        XCTAssertNil(poly.j)
+
+        let poly2 = Poly10<TestType1, MatchingType, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10>(entity)
+        XCTAssertEqual(poly2.b, entity)
+        XCTAssertNil(poly2.a)
+        XCTAssertNil(poly2.c)
+        XCTAssertNil(poly2.d)
+        XCTAssertNil(poly2.e)
+        XCTAssertNil(poly2.f)
+        XCTAssertNil(poly2.g)
+        XCTAssertNil(poly2.h)
+        XCTAssertNil(poly2.i)
+        XCTAssertNil(poly2.j)
+
+        let poly3 = Poly10<TestType1, TestType2, MatchingType, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10>(entity)
+        XCTAssertEqual(poly3.c, entity)
+        XCTAssertNil(poly3.a)
+        XCTAssertNil(poly3.b)
+        XCTAssertNil(poly3.d)
+        XCTAssertNil(poly3.e)
+        XCTAssertNil(poly3.f)
+        XCTAssertNil(poly3.g)
+        XCTAssertNil(poly3.h)
+        XCTAssertNil(poly3.i)
+        XCTAssertNil(poly3.j)
+
+        let poly4 = Poly10<TestType1, TestType2, TestType3, MatchingType, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10>(entity)
+        XCTAssertEqual(poly4.d, entity)
+        XCTAssertNil(poly4.a)
+        XCTAssertNil(poly4.b)
+        XCTAssertNil(poly4.c)
+        XCTAssertNil(poly4.e)
+        XCTAssertNil(poly4.f)
+        XCTAssertNil(poly4.g)
+        XCTAssertNil(poly4.h)
+        XCTAssertNil(poly4.i)
+        XCTAssertNil(poly4.j)
+
+        let poly5 = Poly10<TestType1, TestType2, TestType3, TestType4, MatchingType, TestType6, TestType7, TestType8, TestType9, TestType10>(entity)
+        XCTAssertEqual(poly5.e, entity)
+        XCTAssertNil(poly5.a)
+        XCTAssertNil(poly5.b)
+        XCTAssertNil(poly5.c)
+        XCTAssertNil(poly5.d)
+        XCTAssertNil(poly5.f)
+        XCTAssertNil(poly5.g)
+        XCTAssertNil(poly5.h)
+        XCTAssertNil(poly5.i)
+        XCTAssertNil(poly5.j)
+
+        let poly6 = Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, MatchingType, TestType7, TestType8, TestType9, TestType10>(entity)
+        XCTAssertEqual(poly6.f, entity)
+        XCTAssertNil(poly6.a)
+        XCTAssertNil(poly6.b)
+        XCTAssertNil(poly6.c)
+        XCTAssertNil(poly6.d)
+        XCTAssertNil(poly6.e)
+        XCTAssertNil(poly6.g)
+        XCTAssertNil(poly6.h)
+        XCTAssertNil(poly6.i)
+        XCTAssertNil(poly6.j)
+
+        let poly7 = Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, MatchingType, TestType8, TestType9, TestType10>(entity)
+        XCTAssertEqual(poly7.g, entity)
+        XCTAssertNil(poly7.a)
+        XCTAssertNil(poly7.b)
+        XCTAssertNil(poly7.c)
+        XCTAssertNil(poly7.d)
+        XCTAssertNil(poly7.e)
+        XCTAssertNil(poly7.f)
+        XCTAssertNil(poly7.h)
+        XCTAssertNil(poly7.i)
+        XCTAssertNil(poly7.j)
+
+        let poly8 = Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, MatchingType, TestType9, TestType10>(entity)
+        XCTAssertEqual(poly8.h, entity)
+        XCTAssertNil(poly8.a)
+        XCTAssertNil(poly8.b)
+        XCTAssertNil(poly8.c)
+        XCTAssertNil(poly8.d)
+        XCTAssertNil(poly8.e)
+        XCTAssertNil(poly8.f)
+        XCTAssertNil(poly8.g)
+        XCTAssertNil(poly8.i)
+        XCTAssertNil(poly8.j)
+
+        let poly9 = Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, MatchingType, TestType10>(entity)
+        XCTAssertEqual(poly9.i, entity)
+        XCTAssertNil(poly9.a)
+        XCTAssertNil(poly9.b)
+        XCTAssertNil(poly9.c)
+        XCTAssertNil(poly9.d)
+        XCTAssertNil(poly9.e)
+        XCTAssertNil(poly9.f)
+        XCTAssertNil(poly9.g)
+        XCTAssertNil(poly9.h)
+        XCTAssertNil(poly9.j)
+
+        let poly10 = Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, MatchingType>(entity)
+        XCTAssertEqual(poly10.j, entity)
+        XCTAssertNil(poly10.a)
+        XCTAssertNil(poly10.b)
+        XCTAssertNil(poly10.c)
+        XCTAssertNil(poly10.d)
+        XCTAssertNil(poly10.e)
+        XCTAssertNil(poly10.f)
+        XCTAssertNil(poly10.g)
+        XCTAssertNil(poly10.h)
+        XCTAssertNil(poly10.i)
+    }
 }
 
 // MARK: - mapping with protocol
@@ -537,6 +660,22 @@ extension PolyTests {
 		XCTAssertNil(poly[TestType8.self])
 		XCTAssertEqual(entity, poly[TestType9.self])
 	}
+
+    func test_Poly10_lookup() {
+        let entity = decoded(type: TestType10.self, data: poly_entity10)
+        let poly = decoded(type: Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10>.self, data: poly_entity10)
+
+        XCTAssertNil(poly[TestType1.self])
+        XCTAssertNil(poly[TestType2.self])
+        XCTAssertNil(poly[TestType3.self])
+        XCTAssertNil(poly[TestType4.self])
+        XCTAssertNil(poly[TestType5.self])
+        XCTAssertNil(poly[TestType6.self])
+        XCTAssertNil(poly[TestType7.self])
+        XCTAssertNil(poly[TestType8.self])
+        XCTAssertNil(poly[TestType9.self])
+        XCTAssertEqual(entity, poly[TestType10.self])
+    }
 }
 
 // MARK: - failures
@@ -576,6 +715,10 @@ extension PolyTests {
 	func test_Poly9_decode_throws_typeNotFound() {
 		XCTAssertThrowsError(try JSONDecoder().decode(Poly9<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9>.self, from: poly_entity10))
 	}
+
+    func test_Poly10_decode_throws_typeNotFound() {
+        XCTAssertThrowsError(try JSONDecoder().decode(Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10>.self, from: poly_entity11))
+    }
 }
 
 // MARK: - decoding ambiguity
@@ -618,7 +761,7 @@ extension PolyTests {
 extension PolyTests {
     func test_PolyTypeNotFoundOutput() {
         do {
-            let _ = try JSONDecoder().decode(Poly9<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9>.self, from: poly_entity10)
+            let _ = try JSONDecoder().decode(Poly10<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10>.self, from: poly_entity11)
         } catch {
             XCTAssertNotNil((error as? PolyDecodeNoTypesMatchedError).debugDescription)
 //            print(error)
@@ -628,6 +771,10 @@ extension PolyTests {
 
 // MARK: - Test types
 extension PolyTests {
+    struct MatchingType: Codable, Equatable {
+        let zzzzz: String
+    }
+
 	struct TestType1: Codable, Equatable {
 		let a: Int
 	}
@@ -663,6 +810,10 @@ extension PolyTests {
 	struct TestType9: Codable, Equatable {
 		let i: Int
 	}
+
+    struct TestType10: Codable, Equatable {
+        let j: Int
+    }
 }
 
 protocol TestProtocol {
@@ -691,6 +842,12 @@ extension Poly3: TestProtocol where A == PolyTests.TestType1, B == PolyTests.Tes
 		}
 	}
 }
+
+let matching_entity = """
+{
+    "zzzzz": "hello world"
+}
+""".data(using: .utf8)!
 
 let poly_entity1 = """
 {
@@ -749,5 +906,11 @@ let poly_entity9 = """
 let poly_entity10 = """
 {
 	"j": 1
+}
+""".data(using: .utf8)!
+
+let poly_entity11 = """
+{
+    "k": 1
 }
 """.data(using: .utf8)!

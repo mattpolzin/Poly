@@ -98,6 +98,7 @@ extension Poly2: Decodable where A: Decodable, B: Decodable {
 			try decode(B.self, from: container).map { Poly2.b($0) }]
 
 		let maybeVal: Poly2<A, B>? = attempts
+            .lazy
 			.compactMap { $0.value }
 			.first
 
@@ -138,6 +139,7 @@ extension Poly3: Decodable where A: Decodable, B: Decodable, C: Decodable {
 			try decode(C.self, from: container).map { Poly3.c($0) }]
 
 		let maybeVal: Poly3<A, B, C>? = attempts
+            .lazy
 			.compactMap { $0.value }
 			.first
 
@@ -181,6 +183,7 @@ extension Poly4: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			try decode(D.self, from: container).map { Poly4.d($0) }]
 
 		let maybeVal: Poly4<A, B, C, D>? = attempts
+            .lazy
 			.compactMap { $0.value }
 			.first
 
@@ -227,6 +230,7 @@ extension Poly5: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			try decode(E.self, from: container).map { Poly5.e($0) }]
 
 		let maybeVal: Poly5<A, B, C, D, E>? = attempts
+            .lazy
 			.compactMap { $0.value }
 			.first
 
@@ -276,6 +280,7 @@ extension Poly6: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			try decode(F.self, from: container).map { Poly6.f($0) }]
 
 		let maybeVal: Poly6<A, B, C, D, E, F>? = attempts
+            .lazy
 			.compactMap { $0.value }
 			.first
 
@@ -328,6 +333,7 @@ extension Poly7: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			try decode(G.self, from: container).map { Poly7.g($0) }]
 
 		let maybeVal: Poly7<A, B, C, D, E, F, G>? = attempts
+            .lazy
 			.compactMap { $0.value }
 			.first
 
@@ -383,6 +389,7 @@ extension Poly8: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			try decode(H.self, from: container).map { Poly8.h($0) }]
 
 		let maybeVal: Poly8<A, B, C, D, E, F, G, H>? = attempts
+            .lazy
 			.compactMap { $0.value }
 			.first
 
@@ -441,6 +448,7 @@ extension Poly9: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 			try decode(I.self, from: container).map { Poly9.i($0) }]
 
 		let maybeVal: Poly9<A, B, C, D, E, F, G, H, I>? = attempts
+            .lazy
 			.compactMap { $0.value }
 			.first
 
@@ -453,4 +461,66 @@ extension Poly9: Decodable where A: Decodable, B: Decodable, C: Decodable, D: De
 
 		self = val
 	}
+}
+
+// MARK: - 10 types
+extension Poly10: Encodable where A: Encodable, B: Encodable, C: Encodable, D: Encodable, E: Encodable, F: Encodable, G: Encodable, H: Encodable, I: Encodable, J: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+
+        switch self {
+        case .a(let a):
+            try container.encode(a)
+        case .b(let b):
+            try container.encode(b)
+        case .c(let c):
+            try container.encode(c)
+        case .d(let d):
+            try container.encode(d)
+        case .e(let e):
+            try container.encode(e)
+        case .f(let f):
+            try container.encode(f)
+        case .g(let g):
+            try container.encode(g)
+        case .h(let h):
+            try container.encode(h)
+        case .i(let i):
+            try container.encode(i)
+        case .j(let j):
+            try container.encode(j)
+        }
+    }
+}
+
+extension Poly10: Decodable where A: Decodable, B: Decodable, C: Decodable, D: Decodable, E: Decodable, F: Decodable, G: Decodable, H: Decodable, I: Decodable, J: Decodable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+
+        let attempts = [
+            try decode(A.self, from: container).map { Poly10.a($0) },
+            try decode(B.self, from: container).map { Poly10.b($0) },
+            try decode(C.self, from: container).map { Poly10.c($0) },
+            try decode(D.self, from: container).map { Poly10.d($0) },
+            try decode(E.self, from: container).map { Poly10.e($0) },
+            try decode(F.self, from: container).map { Poly10.f($0) },
+            try decode(G.self, from: container).map { Poly10.g($0) },
+            try decode(H.self, from: container).map { Poly10.h($0) },
+            try decode(I.self, from: container).map { Poly10.i($0) },
+            try decode(J.self, from: container).map { Poly10.j($0) }]
+
+        let maybeVal: Poly10<A, B, C, D, E, F, G, H, I, J>? = attempts
+            .lazy
+            .compactMap { $0.value }
+            .first
+
+        guard let val = maybeVal else {
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
+        }
+
+        self = val
+    }
 }
