@@ -208,3 +208,35 @@ extension Poly10: CustomStringConvertible {
         return "Poly(\(str))"
     }
 }
+
+extension Poly11: CustomStringConvertible {
+    public var description: String {
+        let str: String
+        switch self {
+        case .a(let a):
+            str = String(describing: a)
+        case .b(let b):
+            str = String(describing: b)
+        case .c(let c):
+            str = String(describing: c)
+        case .d(let d):
+            str = String(describing: d)
+        case .e(let e):
+            str = String(describing: e)
+        case .f(let f):
+            str = String(describing: f)
+        case .g(let g):
+            str = String(describing: g)
+        case .h(let h):
+            str = String(describing: h)
+        case .i(let i):
+            str = String(describing: i)
+        case .j(let j):
+            str = String(describing: j)
+        case .k(let k):
+            str = String(describing: k)
+        }
+
+        return "Poly(\(str))"
+    }
+}
