@@ -230,3 +230,41 @@ let ten_different_type_values = """
     }
 ]
 """.data(using: .utf8)!
+
+let eleven_different_type_values = """
+[
+    {
+        "a": 1
+    },
+    {
+        "b": 2
+    },
+    {
+        "c": 2
+    },
+    {
+        "d": 2
+    },
+    {
+        "e": 2
+    },
+    {
+        "f": 2
+    },
+    {
+        "g": 2
+    },
+    {
+        "h": 2
+    },
+    {
+        "i": 2
+    },
+    {
+        "j": 3
+    },
+    {
+        "k": 4
+    }
+]
+""".data(using: .utf8)!

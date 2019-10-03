@@ -763,3 +763,132 @@ public enum Poly10<A, B, C, D, E, F, G, H, I, J>: _Poly10 {
 }
 
 extension Poly10: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable {}
+
+// MARK: - 11 types
+public protocol _Poly11: _Poly10 {
+    associatedtype K
+    var k: K? { get }
+
+    init(_ k: K)
+}
+
+public extension _Poly11 {
+    subscript(_ lookup: K.Type) -> K? {
+        return k
+    }
+}
+
+public enum Poly11<A, B, C, D, E, F, G, H, I, J, K>: _Poly11 {
+    case a(A)
+    case b(B)
+    case c(C)
+    case d(D)
+    case e(E)
+    case f(F)
+    case g(G)
+    case h(H)
+    case i(I)
+    case j(J)
+    case k(K)
+
+    public var a: A? {
+        guard case let .a(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ a: A) {
+        self = .a(a)
+    }
+
+    public var b: B? {
+        guard case let .b(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ b: B) {
+        self = .b(b)
+    }
+
+    public var c: C? {
+        guard case let .c(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ c: C) {
+        self = .c(c)
+    }
+
+    public var d: D? {
+        guard case let .d(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ d: D) {
+        self = .d(d)
+    }
+
+    public var e: E? {
+        guard case let .e(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ e: E) {
+        self = .e(e)
+    }
+
+    public var f: F? {
+        guard case let .f(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ f: F) {
+        self = .f(f)
+    }
+
+    public var g: G? {
+        guard case let .g(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ g: G) {
+        self = .g(g)
+    }
+
+    public var h: H? {
+        guard case let .h(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ h: H) {
+        self = .h(h)
+    }
+
+    public var i: I? {
+        guard case let .i(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ i: I) {
+        self = .i(i)
+    }
+
+    public var j: J? {
+        guard case let .j(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ j: J) {
+        self = .j(j)
+    }
+
+    public var k: K? {
+        guard case let .k(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ k: K) {
+        self = .k(k)
+    }
+}
+
+extension Poly11: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable {}
