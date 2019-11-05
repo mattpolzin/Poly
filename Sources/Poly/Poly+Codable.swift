@@ -20,7 +20,7 @@ public struct PolyDecodeNoTypesMatchedError: Swift.Error, CustomDebugStringConve
     public var debugDescription: String {
         let codingPathString = codingPath
             .map { $0.intValue.map(String.init) ?? $0.stringValue }
-        .joined(separator: "/")
+            .joined(separator: "/")
 
         let failureStrings = individualTypeFailures.map {
             let type = $0.type
@@ -47,10 +47,17 @@ private func decode<Thing: Decodable>(_ type: Thing.Type, from container: Single
 	} catch (let err as DecodingError) {
 		ret = .failure(PolyTypeNotFound(type: type, error: err))
 	} catch (let err) {
-        ret = .failure(PolyTypeNotFound(type: type, error: DecodingError.typeMismatch(Thing.self,
-                                                                                      .init(codingPath: container.codingPath,
-                                                                                            debugDescription: String(describing: err),
-                                                                                            underlyingError: err))))
+        ret = .failure(PolyTypeNotFound(
+            type: type,
+            error: DecodingError.typeMismatch(
+                Thing.self,
+                .init(
+                    codingPath: container.codingPath,
+                    debugDescription: String(describing: err),
+                    underlyingError: err
+                )
+            )
+        ))
 	}
 	return ret
 }

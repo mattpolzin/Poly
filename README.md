@@ -67,6 +67,10 @@ switch animal {
     print(rat)
 }
 ```
+Or access a type-erased value:
+```swift
+let someAnimal: Any = animal.value 
+```
 
 You might consider making a typealias to make your life easier:
 ```swift
