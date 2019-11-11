@@ -10,8 +10,8 @@
 public struct PolyDecodeNoTypesMatchedError: Swift.Error, CustomDebugStringConvertible {
 
     public struct IndividualFailure: Swift.Error {
-        let type: Any.Type
-        let error: DecodingError
+        public let type: Any.Type
+        public let error: DecodingError
     }
 
     public let codingPath: [CodingKey]
