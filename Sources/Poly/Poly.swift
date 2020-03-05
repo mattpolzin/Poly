@@ -43,6 +43,9 @@
 public protocol Poly {
     /// Get a type-erased value.
     var value: Any { get }
+
+    /// Get a list of all types this `Poly` supports.
+    static var allTypes: [Any.Type] { get }
 }
 
 // MARK: - 0 types
