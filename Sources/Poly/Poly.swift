@@ -57,7 +57,7 @@ public struct Poly0: _Poly0 {
     public var value: Any { return () }
 }
 
-extension Poly0: Equatable {}
+extension Poly0: Equatable, Hashable {}
 
 // MARK: - 1 type
 public protocol _Poly1: _Poly0 {
@@ -98,6 +98,7 @@ public enum Poly1<A>: _Poly1 {
 }
 
 extension Poly1: Equatable where A: Equatable {}
+extension Poly1: Hashable where A: Hashable {}
 
 // MARK: - 2 types
 public protocol _Poly2: _Poly1 {
@@ -150,6 +151,7 @@ public enum Poly2<A, B>: _Poly2 {
 }
 
 extension Poly2: Equatable where A: Equatable, B: Equatable {}
+extension Poly2: Hashable where A: Hashable, B: Hashable {}
 
 // MARK: - 3 types
 public protocol _Poly3: _Poly2 {
@@ -209,7 +211,8 @@ public enum Poly3<A, B, C>: _Poly3 {
     }
 }
 
-extension Poly3: Equatable where A: Equatable, B: Equatable, C:Equatable {}
+extension Poly3: Equatable where A: Equatable, B: Equatable, C: Equatable {}
+extension Poly3: Hashable where A: Hashable, B: Hashable, C: Hashable {}
 
 // MARK: - 4 types
 public protocol _Poly4: _Poly3 {
@@ -281,6 +284,7 @@ public enum Poly4<A, B, C, D>: _Poly4 {
 }
 
 extension Poly4: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable {}
+extension Poly4: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable {}
 
 // MARK: - 5 types
 public protocol _Poly5: _Poly4 {
@@ -363,6 +367,7 @@ public enum Poly5<A, B, C, D, E>: _Poly5 {
 }
 
 extension Poly5: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable {}
+extension Poly5: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable {}
 
 // MARK: - 6 types
 public protocol _Poly6: _Poly5 {
@@ -456,6 +461,7 @@ public enum Poly6<A, B, C, D, E, F>: _Poly6 {
 }
 
 extension Poly6: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable {}
+extension Poly6: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable {}
 
 // MARK: - 7 types
 public protocol _Poly7: _Poly6 {
@@ -560,6 +566,7 @@ public enum Poly7<A, B, C, D, E, F, G>: _Poly7 {
 }
 
 extension Poly7: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable {}
+extension Poly7: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable {}
 
 // MARK: - 8 types
 public protocol _Poly8: _Poly7 {
@@ -675,6 +682,7 @@ public enum Poly8<A, B, C, D, E, F, G, H>: _Poly8 {
 }
 
 extension Poly8: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable {}
+extension Poly8: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable {}
 
 // MARK: - 9 types
 public protocol _Poly9: _Poly8 {
@@ -801,6 +809,7 @@ public enum Poly9<A, B, C, D, E, F, G, H, I>: _Poly9 {
 }
 
 extension Poly9: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable {}
+extension Poly9: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable {}
 
 // MARK: - 10 types
 public protocol _Poly10: _Poly9 {
@@ -938,6 +947,7 @@ public enum Poly10<A, B, C, D, E, F, G, H, I, J>: _Poly10 {
 }
 
 extension Poly10: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable {}
+extension Poly10: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable {}
 
 // MARK: - 11 types
 public protocol _Poly11: _Poly10 {
@@ -1086,3 +1096,4 @@ public enum Poly11<A, B, C, D, E, F, G, H, I, J, K>: _Poly11 {
 }
 
 extension Poly11: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable {}
+extension Poly11: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable, K: Hashable {}
