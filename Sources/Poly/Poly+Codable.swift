@@ -7,6 +7,24 @@
 
 // MARK: - Generic Decoding
 
+/// Attempt to create a pretty error output for a few common decoding
+/// errors.
+func prettyDecodingError(error: DecodingError) -> String? {
+    switch error {
+    case .keyNotFound(let key, _):
+        if let idx = key.intValue {
+            return "The key at index \(idx) was not found." // :S doesn't make sense, pretty sure.
+        }
+        return "The '\(key.stringValue)' key was not found."
+    case .valueNotFound(let ty, _):
+        return "A value of type '\(String(describing: ty))' was expected but not found."
+    case .typeMismatch(let ty, _):
+        return "Found something that could not be decoded as '\(String(describing: ty))'."
+    default:
+        return nil
+    }
+}
+
 public struct PolyDecodeNoTypesMatchedError: Swift.Error, CustomDebugStringConvertible {
 
     public struct IndividualFailure: Swift.Error {
@@ -25,7 +43,9 @@ public struct PolyDecodeNoTypesMatchedError: Swift.Error, CustomDebugStringConve
         let failureStrings = individualTypeFailures.map {
             let type = $0.type
             let descriptiveError = $0.error as? CustomDebugStringConvertible
-            let error = descriptiveError?.debugDescription ?? String(describing: $0.error)
+            let error = prettyDecodingError(error: $0.error)
+                ?? descriptiveError?.debugDescription
+                ?? String(describing: $0.error)
             return "\(String(describing: type)) could not be decoded because:\n\(error)"
         }.joined(separator: "\n\n")
 
