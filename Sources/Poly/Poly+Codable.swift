@@ -19,7 +19,13 @@ func prettyDecodingError(error: DecodingError) -> String? {
     case .valueNotFound(let ty, _):
         return "A value of type '\(String(describing: ty))' was expected but not found."
     case .typeMismatch(let ty, _):
-        return "Found something that could not be decoded as '\(String(describing: ty))'."
+        let tyDescription: String
+        if ty == Dictionary<String, Any>.self {
+            tyDescription = "as an Object (key/value dictionary)"
+        } else {
+            tyDescription = "as '\(String(describing: ty))'"
+        }
+        return "Found something that could not be decoded \(tyDescription)."
     default:
         return nil
     }
