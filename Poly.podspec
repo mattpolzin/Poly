@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Poly"
-  spec.version      = "2.4.0"
+  spec.version      = "2.5.3"
   spec.summary      = "A general-purpose library to help represent situations where the type of a value is one of a set of types."
 
   # This description is used to generate tags and improve search results.
