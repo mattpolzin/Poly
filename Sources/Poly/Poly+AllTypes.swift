@@ -52,3 +52,11 @@ extension Poly10 {
 extension Poly11 {
     public static var allTypes: [Any.Type] { [A.self, B.self, C.self, D.self, E.self, F.self, G.self, H.self, I.self, J.self, K.self] }
 }
+
+extension Poly12 {
+    public static var allTypes: [Any.Type] { [A.self, B.self, C.self, D.self, E.self, F.self, G.self, H.self, I.self, J.self, K.self, L.self] }
+}
+
+extension Poly13 {
+    public static var allTypes: [Any.Type] { [A.self, B.self, C.self, D.self, E.self, F.self, G.self, H.self, I.self, J.self, K.self, L.self, M.self] }
+}

@@ -81,3 +81,17 @@ extension Collection where Element: _Poly11 {
         return compactMap { $0.k }
     }
 }
+
+// MARK: 12 types
+extension Collection where Element: _Poly12 {
+    public subscript(type: Element.L.Type) -> [Element.L] {
+        return compactMap { $0.l }
+    }
+}
+
+// MARK: 13 types
+extension Collection where Element: _Poly13 {
+    public subscript(type: Element.M.Type) -> [Element.M] {
+        return compactMap { $0.m }
+    }
+}
