@@ -95,3 +95,10 @@ extension Collection where Element: _Poly13 {
         return compactMap { $0.m }
     }
 }
+
+// MARK: 14 types
+extension Collection where Element: _Poly14 {
+    public subscript(type: Element.N.Type) -> [Element.N] {
+        return compactMap { $0.n }
+    }
+}
