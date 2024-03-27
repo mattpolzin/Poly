@@ -761,3 +761,77 @@ extension Poly13: Decodable where A: Decodable, B: Decodable, C: Decodable, D: D
         self = val
     }
 }
+
+// MARK: - 13 types
+extension Poly14: Encodable where A: Encodable, B: Encodable, C: Encodable, D: Encodable, E: Encodable, F: Encodable, G: Encodable, H: Encodable, I: Encodable, J: Encodable, K: Encodable, L: Encodable, M: Encodable, N: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+
+        switch self {
+        case .a(let a):
+            try container.encode(a)
+        case .b(let b):
+            try container.encode(b)
+        case .c(let c):
+            try container.encode(c)
+        case .d(let d):
+            try container.encode(d)
+        case .e(let e):
+            try container.encode(e)
+        case .f(let f):
+            try container.encode(f)
+        case .g(let g):
+            try container.encode(g)
+        case .h(let h):
+            try container.encode(h)
+        case .i(let i):
+            try container.encode(i)
+        case .j(let j):
+            try container.encode(j)
+        case .k(let k):
+            try container.encode(k)
+        case .l(let l):
+            try container.encode(l)
+        case .m(let m):
+            try container.encode(m)
+        case .n(let n):
+            try container.encode(n)
+        }
+    }
+}
+
+extension Poly14: Decodable where A: Decodable, B: Decodable, C: Decodable, D: Decodable, E: Decodable, F: Decodable, G: Decodable, H: Decodable, I: Decodable, J: Decodable, K: Decodable, L: Decodable, M: Decodable, N: Decodable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+
+        let attempts = [
+            try decode(A.self, from: container).map { Poly14.a($0) },
+            try decode(B.self, from: container).map { Poly14.b($0) },
+            try decode(C.self, from: container).map { Poly14.c($0) },
+            try decode(D.self, from: container).map { Poly14.d($0) },
+            try decode(E.self, from: container).map { Poly14.e($0) },
+            try decode(F.self, from: container).map { Poly14.f($0) },
+            try decode(G.self, from: container).map { Poly14.g($0) },
+            try decode(H.self, from: container).map { Poly14.h($0) },
+            try decode(I.self, from: container).map { Poly14.i($0) },
+            try decode(J.self, from: container).map { Poly14.j($0) },
+            try decode(K.self, from: container).map { Poly14.k($0) },
+            try decode(L.self, from: container).map { Poly14.l($0) },
+            try decode(M.self, from: container).map { Poly14.m($0) },
+            try decode(N.self, from: container).map { Poly14.n($0) }]
+
+        let maybeVal: Poly14<A, B, C, D, E, F, G, H, I, J, K, L, M, N>? = attempts
+            .lazy
+            .compactMap { $0.value }
+            .first
+
+        guard let val = maybeVal else {
+            let individualFailures = attempts.map { $0.error }.compactMap { $0 }
+
+            throw PolyDecodeNoTypesMatchedError(codingPath: decoder.codingPath,
+                                                individualTypeFailures: individualFailures)
+        }
+
+        self = val
+    }
+}
