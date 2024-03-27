@@ -400,3 +400,53 @@ let fourteen_different_type_values = """
     }
 ]
 """.data(using: .utf8)!
+
+let fifteen_different_type_values = """
+[
+    {
+        "a": 1
+    },
+    {
+        "b": 2
+    },
+    {
+        "c": 2
+    },
+    {
+        "d": 2
+    },
+    {
+        "e": 2
+    },
+    {
+        "f": 2
+    },
+    {
+        "g": 2
+    },
+    {
+        "h": 2
+    },
+    {
+        "i": 2
+    },
+    {
+        "j": 3
+    },
+    {
+        "k": 4
+    },
+    {
+        "l": 5
+    },
+    {
+        "m": 6
+    },
+    {
+        "n": 7
+    },
+    {
+        "o": 8
+    }
+]
+""".data(using: .utf8)!

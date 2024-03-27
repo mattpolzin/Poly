@@ -1429,7 +1429,6 @@ public enum Poly13<A, B, C, D, E, F, G, H, I, J, K, L, M>: _Poly13 {
 extension Poly13: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable, L: Equatable, M: Equatable {}
 extension Poly13: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable, K: Hashable, L: Hashable, M: Hashable {}
 
-
     // MARK: - 14 types
 public protocol _Poly14: _Poly13 {
     associatedtype N
@@ -1610,3 +1609,195 @@ public enum Poly14<A, B, C, D, E, F, G, H, I, J, K, L, M, N>: _Poly14 {
 
 extension Poly14: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable, L: Equatable, M: Equatable, N: Equatable {}
 extension Poly14: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable, K: Hashable, L: Hashable, M: Hashable, N: Hashable {}
+
+    // MARK: - 15 types
+public protocol _Poly15: _Poly14 {
+    associatedtype O
+
+        /// Get the value if it is of type `L`
+    var o: O? { get }
+
+    init(_ o: O)
+}
+
+public extension _Poly15 {
+    subscript(_ lookup: O.Type) -> O? {
+        return o
+    }
+}
+    /// See `Poly` for documentation
+public enum Poly15<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O>: _Poly15 {
+    case a(A)
+    case b(B)
+    case c(C)
+    case d(D)
+    case e(E)
+    case f(F)
+    case g(G)
+    case h(H)
+    case i(I)
+    case j(J)
+    case k(K)
+    case l(L)
+    case m(M)
+    case n(N)
+    case o(O)
+
+    public var a: A? {
+        guard case let .a(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ a: A) {
+        self = .a(a)
+    }
+
+    public var b: B? {
+        guard case let .b(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ b: B) {
+        self = .b(b)
+    }
+
+    public var c: C? {
+        guard case let .c(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ c: C) {
+        self = .c(c)
+    }
+
+    public var d: D? {
+        guard case let .d(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ d: D) {
+        self = .d(d)
+    }
+
+    public var e: E? {
+        guard case let .e(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ e: E) {
+        self = .e(e)
+    }
+
+    public var f: F? {
+        guard case let .f(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ f: F) {
+        self = .f(f)
+    }
+
+    public var g: G? {
+        guard case let .g(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ g: G) {
+        self = .g(g)
+    }
+
+    public var h: H? {
+        guard case let .h(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ h: H) {
+        self = .h(h)
+    }
+
+    public var i: I? {
+        guard case let .i(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ i: I) {
+        self = .i(i)
+    }
+
+    public var j: J? {
+        guard case let .j(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ j: J) {
+        self = .j(j)
+    }
+
+    public var k: K? {
+        guard case let .k(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ k: K) {
+        self = .k(k)
+    }
+
+    public var l: L? {
+        guard case let .l(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ l: L) {
+        self = .l(l)
+    }
+
+    public var m: M? {
+        guard case let .m(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ m: M) {
+        self = .m(m)
+    }
+
+    public var n: N? {
+        guard case let .n(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ n: N) {
+        self = .n(n)
+    }
+
+    public var o: O? {
+        guard case let .o(ret) = self else { return nil }
+        return ret
+    }
+
+    public init(_ o: O) {
+        self = .o(o)
+    }
+
+    public var value: Any {
+        switch self {
+        case .a(let ret): return ret
+        case .b(let ret): return ret
+        case .c(let ret): return ret
+        case .d(let ret): return ret
+        case .e(let ret): return ret
+        case .f(let ret): return ret
+        case .g(let ret): return ret
+        case .h(let ret): return ret
+        case .i(let ret): return ret
+        case .j(let ret): return ret
+        case .k(let ret): return ret
+        case .l(let ret): return ret
+        case .m(let ret): return ret
+        case .n(let ret): return ret
+        case .o(let ret): return ret
+        }
+    }
+}
+
+extension Poly15: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable, L: Equatable, M: Equatable, N: Equatable, O: Equatable {}
+extension Poly15: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable, K: Hashable, L: Hashable, M: Hashable, N: Hashable, O: Hashable {}

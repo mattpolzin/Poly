@@ -159,63 +159,22 @@ final class PolyAllTypesTests: XCTestCase {
         XCTAssert(Poly14<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14>.allTypes[12] == TestType13.self)
         XCTAssert(Poly14<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14>.allTypes[13] == TestType14.self)
     }
-}
 
-// MARK: - Test types
-extension PolyAllTypesTests {
-    struct TestType1: Codable, Equatable {
-        let a: Int
-    }
-
-    struct TestType2: Codable, Equatable {
-        let b: Int
-    }
-
-    struct TestType3: Codable, Equatable {
-        let c: Int
-    }
-
-    struct TestType4: Codable, Equatable {
-        let d: Int
-    }
-
-    struct TestType5: Codable, Equatable {
-        let e: Int
-    }
-
-    struct TestType6: Codable, Equatable {
-        let f: Int
-    }
-
-    struct TestType7: Codable, Equatable {
-        let g: Int
-    }
-
-    struct TestType8: Codable, Equatable {
-        let h: Int
-    }
-
-    struct TestType9: Codable, Equatable {
-        let i: Int
-    }
-
-    struct TestType10: Codable, Equatable {
-        let j: Int
-    }
-
-    struct TestType11: Codable, Equatable {
-        let k: Int
-    }
-
-    struct TestType12: Codable, Equatable {
-        let l: Int
-    }
-
-    struct TestType13: Codable, Equatable {
-        let m: Int
-    }
-
-    struct TestType14: Codable, Equatable {
-        let n: Int
+    func test_poly15() {
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[0] == TestType1.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[1] == TestType2.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[2] == TestType3.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[3] == TestType4.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[4] == TestType5.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[5] == TestType6.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[6] == TestType7.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[7] == TestType8.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[8] == TestType9.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[9] == TestType10.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[10] == TestType11.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[11] == TestType12.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[12] == TestType13.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[13] == TestType14.self)
+        XCTAssert(Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>.allTypes[14] == TestType15.self)
     }
 }
