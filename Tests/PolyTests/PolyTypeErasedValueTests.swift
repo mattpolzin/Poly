@@ -460,4 +460,66 @@ final class PolyTypeErasedValueTests: XCTestCase {
         XCTAssert(type(of: t14.value) == String.self)
         XCTAssertEqual(t14.value as? String, "hello")
     }
+
+    func test_poly15() {
+        let t1 = Poly15<String, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t1.value) == String.self)
+        XCTAssertEqual(t1.value as? String, "hello")
+
+        let t2 = Poly15<Void, String, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t2.value) == String.self)
+        XCTAssertEqual(t2.value as? String, "hello")
+
+        let t3 = Poly15<Void, Void, String, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t3.value) == String.self)
+        XCTAssertEqual(t3.value as? String, "hello")
+
+        let t4 = Poly15<Void, Void, Void, String, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t4.value) == String.self)
+        XCTAssertEqual(t4.value as? String, "hello")
+
+        let t5 = Poly15<Void, Void, Void, Void, String, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t5.value) == String.self)
+        XCTAssertEqual(t5.value as? String, "hello")
+
+        let t6 = Poly15<Void, Void, Void, Void, Void, String, Void, Void, Void, Void, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t6.value) == String.self)
+        XCTAssertEqual(t6.value as? String, "hello")
+
+        let t7 = Poly15<Void, Void, Void, Void, Void, Void, String, Void, Void, Void, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t7.value) == String.self)
+        XCTAssertEqual(t7.value as? String, "hello")
+
+        let t8 = Poly15<Void, Void, Void, Void, Void, Void, Void, String, Void, Void, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t8.value) == String.self)
+        XCTAssertEqual(t8.value as? String, "hello")
+
+        let t9 = Poly15<Void, Void, Void, Void, Void, Void, Void, Void, String, Void, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t9.value) == String.self)
+        XCTAssertEqual(t9.value as? String, "hello")
+
+        let t10 = Poly15<Void, Void, Void, Void, Void, Void, Void, Void, Void, String, Void, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t10.value) == String.self)
+        XCTAssertEqual(t10.value as? String, "hello")
+
+        let t11 = Poly15<Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, String, Void, Void, Void, Void>("hello")
+        XCTAssert(type(of: t11.value) == String.self)
+        XCTAssertEqual(t11.value as? String, "hello")
+
+        let t12 = Poly15<Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, String, Void, Void, Void>("hello")
+        XCTAssert(type(of: t12.value) == String.self)
+        XCTAssertEqual(t12.value as? String, "hello")
+
+        let t13 = Poly15<Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, String, Void, Void>("hello")
+        XCTAssert(type(of: t13.value) == String.self)
+        XCTAssertEqual(t13.value as? String, "hello")
+
+        let t14 = Poly15<Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, String, Void>("hello")
+        XCTAssert(type(of: t14.value) == String.self)
+        XCTAssertEqual(t14.value as? String, "hello")
+
+        let t15 = Poly15<Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, Void, String>("hello")
+        XCTAssert(type(of: t15.value) == String.self)
+        XCTAssertEqual(t15.value as? String, "hello")
+    }
 }

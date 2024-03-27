@@ -279,63 +279,28 @@ class CollectionPolyTests: XCTestCase {
         test_DecodeEncodeEquality(type: [Poly14<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14>].self,
                                   data: fourteen_different_type_values)
     }
-}
 
-// MARK: - Test Types
-extension CollectionPolyTests {
-	struct TestType1: Codable, Equatable {
-		let a: Int
-	}
+    func test_FifteenDifferentTypes() {
+        let values = decoded(type: [Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>].self,
+                             data: fifteen_different_type_values)
 
-	struct TestType2: Codable, Equatable {
-		let b: Int
-	}
+        XCTAssertEqual(values[TestType1.self].count, 1)
+        XCTAssertEqual(values[TestType2.self].count, 1)
+        XCTAssertEqual(values[TestType3.self].count, 1)
+        XCTAssertEqual(values[TestType4.self].count, 1)
+        XCTAssertEqual(values[TestType5.self].count, 1)
+        XCTAssertEqual(values[TestType6.self].count, 1)
+        XCTAssertEqual(values[TestType7.self].count, 1)
+        XCTAssertEqual(values[TestType8.self].count, 1)
+        XCTAssertEqual(values[TestType9.self].count, 1)
+        XCTAssertEqual(values[TestType10.self].count, 1)
+        XCTAssertEqual(values[TestType11.self].count, 1)
+        XCTAssertEqual(values[TestType12.self].count, 1)
+        XCTAssertEqual(values[TestType13.self].count, 1)
+    }
 
-	struct TestType3: Codable, Equatable {
-		let c: Int
-	}
-
-	struct TestType4: Codable, Equatable {
-		let d: Int
-	}
-
-	struct TestType5: Codable, Equatable {
-		let e: Int
-	}
-
-	struct TestType6: Codable, Equatable {
-		let f: Int
-	}
-
-	struct TestType7: Codable, Equatable {
-		let g: Int
-	}
-
-	struct TestType8: Codable, Equatable {
-		let h: Int
-	}
-
-	struct TestType9: Codable, Equatable {
-		let i: Int
-	}
-
-  struct TestType10: Codable, Equatable {
-      let j: Int
-  }
-
-  struct TestType11: Codable, Equatable {
-      let k: Int
-  }
-
-  struct TestType12: Codable, Equatable {
-      let l: Int
-  }
-
-  struct TestType13: Codable, Equatable {
-      let m: Int
-  }
-
-  struct TestType14: Codable, Equatable {
-      let n: Int
-  }
+    func test_FifteenDifferentTypes_encode() {
+        test_DecodeEncodeEquality(type: [Poly15<TestType1, TestType2, TestType3, TestType4, TestType5, TestType6, TestType7, TestType8, TestType9, TestType10, TestType11, TestType12, TestType13, TestType14, TestType15>].self,
+                                  data: fifteen_different_type_values)
+    }
 }
