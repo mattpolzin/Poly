@@ -1,12 +1,12 @@
-// swift-tools-version:5.0
+// swift-tools-version:6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "Poly",
-    platforms: [.macOS(.v10_10),
-                .iOS(.v10)],
+    platforms: [.macOS(.v10_15),
+                .iOS(.v13)],
     products: [
         .library(
             name: "Poly",
@@ -21,5 +21,5 @@ let package = Package(
             name: "PolyTests",
             dependencies: ["Poly"]),
     ],
-    swiftLanguageVersions: [.v4_2, .v5]
+    swiftLanguageModes: [.v5, .v6]
 )
