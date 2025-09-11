@@ -57,7 +57,7 @@ public struct Poly0: _Poly0 {
     public var value: Any { return () }
 }
 
-extension Poly0: Equatable, Hashable {}
+extension Poly0: Equatable, Hashable, Sendable {}
 
 // MARK: - 1 type
 public protocol _Poly1: _Poly0 {
@@ -99,6 +99,7 @@ public enum Poly1<A>: _Poly1 {
 
 extension Poly1: Equatable where A: Equatable {}
 extension Poly1: Hashable where A: Hashable {}
+extension Poly1: Sendable where A: Sendable {}
 
 // MARK: - 2 types
 public protocol _Poly2: _Poly1 {
@@ -152,6 +153,7 @@ public enum Poly2<A, B>: _Poly2 {
 
 extension Poly2: Equatable where A: Equatable, B: Equatable {}
 extension Poly2: Hashable where A: Hashable, B: Hashable {}
+extension Poly2: Sendable where A: Sendable, B: Sendable {}
 
 // MARK: - 3 types
 public protocol _Poly3: _Poly2 {
@@ -213,6 +215,7 @@ public enum Poly3<A, B, C>: _Poly3 {
 
 extension Poly3: Equatable where A: Equatable, B: Equatable, C: Equatable {}
 extension Poly3: Hashable where A: Hashable, B: Hashable, C: Hashable {}
+extension Poly3: Sendable where A: Sendable, B: Sendable, C: Sendable {}
 
 // MARK: - 4 types
 public protocol _Poly4: _Poly3 {
@@ -285,6 +288,7 @@ public enum Poly4<A, B, C, D>: _Poly4 {
 
 extension Poly4: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable {}
 extension Poly4: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable {}
+extension Poly4: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable {}
 
 // MARK: - 5 types
 public protocol _Poly5: _Poly4 {
@@ -368,6 +372,7 @@ public enum Poly5<A, B, C, D, E>: _Poly5 {
 
 extension Poly5: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable {}
 extension Poly5: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable {}
+extension Poly5: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable {}
 
 // MARK: - 6 types
 public protocol _Poly6: _Poly5 {
@@ -462,6 +467,7 @@ public enum Poly6<A, B, C, D, E, F>: _Poly6 {
 
 extension Poly6: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable {}
 extension Poly6: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable {}
+extension Poly6: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable {}
 
 // MARK: - 7 types
 public protocol _Poly7: _Poly6 {
@@ -567,6 +573,7 @@ public enum Poly7<A, B, C, D, E, F, G>: _Poly7 {
 
 extension Poly7: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable {}
 extension Poly7: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable {}
+extension Poly7: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable, G: Sendable {}
 
 // MARK: - 8 types
 public protocol _Poly8: _Poly7 {
@@ -683,6 +690,7 @@ public enum Poly8<A, B, C, D, E, F, G, H>: _Poly8 {
 
 extension Poly8: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable {}
 extension Poly8: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable {}
+extension Poly8: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable, G: Sendable, H: Sendable {}
 
 // MARK: - 9 types
 public protocol _Poly9: _Poly8 {
@@ -810,6 +818,7 @@ public enum Poly9<A, B, C, D, E, F, G, H, I>: _Poly9 {
 
 extension Poly9: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable {}
 extension Poly9: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable {}
+extension Poly9: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable, G: Sendable, H: Sendable, I: Sendable {}
 
 // MARK: - 10 types
 public protocol _Poly10: _Poly9 {
@@ -948,6 +957,7 @@ public enum Poly10<A, B, C, D, E, F, G, H, I, J>: _Poly10 {
 
 extension Poly10: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable {}
 extension Poly10: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable {}
+extension Poly10: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable, G: Sendable, H: Sendable, I: Sendable, J: Sendable {}
 
 // MARK: - 11 types
 public protocol _Poly11: _Poly10 {
@@ -1097,6 +1107,7 @@ public enum Poly11<A, B, C, D, E, F, G, H, I, J, K>: _Poly11 {
 
 extension Poly11: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable {}
 extension Poly11: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable, K: Hashable {}
+extension Poly11: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable, G: Sendable, H: Sendable, I: Sendable, J: Sendable, K: Sendable {}
 
     // MARK: - 12 types
 public protocol _Poly12: _Poly11 {
@@ -1257,6 +1268,7 @@ public enum Poly12<A, B, C, D, E, F, G, H, I, J, K, L>: _Poly12 {
 
 extension Poly12: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable, L: Equatable {}
 extension Poly12: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable, K: Hashable, L: Hashable {}
+extension Poly12: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable, G: Sendable, H: Sendable, I: Sendable, J: Sendable, K: Sendable, L: Sendable {}
 
     // MARK: - 13 types
 public protocol _Poly13: _Poly12 {
@@ -1428,6 +1440,7 @@ public enum Poly13<A, B, C, D, E, F, G, H, I, J, K, L, M>: _Poly13 {
 
 extension Poly13: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable, L: Equatable, M: Equatable {}
 extension Poly13: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable, K: Hashable, L: Hashable, M: Hashable {}
+extension Poly13: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable, G: Sendable, H: Sendable, I: Sendable, J: Sendable, K: Sendable, L: Sendable, M: Sendable {}
 
     // MARK: - 14 types
 public protocol _Poly14: _Poly13 {
@@ -1609,6 +1622,7 @@ public enum Poly14<A, B, C, D, E, F, G, H, I, J, K, L, M, N>: _Poly14 {
 
 extension Poly14: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable, L: Equatable, M: Equatable, N: Equatable {}
 extension Poly14: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable, K: Hashable, L: Hashable, M: Hashable, N: Hashable {}
+extension Poly14: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable, G: Sendable, H: Sendable, I: Sendable, J: Sendable, K: Sendable, L: Sendable, M: Sendable, N: Sendable {}
 
     // MARK: - 15 types
 public protocol _Poly15: _Poly14 {
@@ -1801,3 +1815,4 @@ public enum Poly15<A, B, C, D, E, F, G, H, I, J, K, L, M, N, O>: _Poly15 {
 
 extension Poly15: Equatable where A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable, F: Equatable, G: Equatable, H: Equatable, I: Equatable, J: Equatable, K: Equatable, L: Equatable, M: Equatable, N: Equatable, O: Equatable {}
 extension Poly15: Hashable where A: Hashable, B: Hashable, C: Hashable, D: Hashable, E: Hashable, F: Hashable, G: Hashable, H: Hashable, I: Hashable, J: Hashable, K: Hashable, L: Hashable, M: Hashable, N: Hashable, O: Hashable {}
+extension Poly15: Sendable where A: Sendable, B: Sendable, C: Sendable, D: Sendable, E: Sendable, F: Sendable, G: Sendable, H: Sendable, I: Sendable, J: Sendable, K: Sendable, L: Sendable, M: Sendable, N: Sendable, O: Sendable {}
